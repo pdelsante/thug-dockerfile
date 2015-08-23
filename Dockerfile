@@ -37,7 +37,6 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install --no-install
             libtool \
             nano \
             python-lxml \
-            python-magic \
             python-pip \
             python-setuptools \
             python2.7 \
