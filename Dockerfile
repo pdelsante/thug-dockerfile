@@ -36,24 +36,31 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install --no-install
             librabbitmq1 \
             libtool \
             nano \
+            pkg-config \
             python-lxml \
             python-pip \
             python-setuptools \
             python2.7 \
             subversion \
+            tcpdump \
             # development packages
             graphviz-dev \
             libboost-dev \
             libboost-python-dev \
             libboost-system-dev \
             libboost-thread-dev \
+            libgraphviz-dev \
             libemu-dev \
             libffi-dev \
+            libfuzzy-dev \
             libpcre3-dev \
+            libxml2-dev \
+            libxslt1-dev \
             python2.7-dev
 
 # Install Python requirements via PIP
 RUN pip install -r /opt/src/requirements.txt
+
 
 # Install python-ssdeep by hand
 RUN BUILD_LIB=1 pip install ssdeep
