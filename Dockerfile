@@ -60,7 +60,7 @@ RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install --no-install
 
 # Install Python requirements via PIP
 RUN pip install -r /opt/src/requirements.txt
-
+RUN pip install pygraphviz==1.3.1 --install-option="--include-path=/usr/include/graphviz" --install-option="--library-path=/usr/lib/graphviz/"
 
 # Install python-ssdeep by hand
 RUN BUILD_LIB=1 pip install ssdeep
@@ -101,3 +101,6 @@ RUN         apt-get -y remove build-essential \
         rm -rf /var/lib/apt/lists/* /usr/local/src/pylibemu /usr/local/src/pyv8/ /opt/src/requirements.txt && \
         dpkg -l |grep ^rc |awk '{print $2}' |xargs dpkg --purge && \
         rm -f /opt/thug/samples/exploits/blackhole.html
+
+# Copy Thug plugins
+COPY Plugins/* /opt/thug/src/Plugins/
